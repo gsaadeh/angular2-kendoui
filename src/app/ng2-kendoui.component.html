@@ -1,3 +1,10 @@
 <h1>
   {{title}}
-</h1>
+</h1> {{diagnostic}}
+<form [ngFormModel]='testForm'>
+  <fieldset>
+      <legend>KendoUI Angular2</legend>
+      <kendo-numerictextbox [options]="numericOptions" ngControl="amount" (spin)="log($event)" [(ngModel)]='data.amount'></kendo-numerictextbox>
+  </fieldset>
+  <button (click)="onSubmit()">Submit</button>
+</form>

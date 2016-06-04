@@ -3,10 +3,27 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'jquery': 'vendor/jquery/dist/jquery.js',
+  'kendo-ui-core': 'vendor/kendo-ui-core/js'
 };
 
 /** User packages configuration. */
 const packages: any = {
+  'kendo-ui-core/core': {
+    format: 'cjs',
+    defaultExtension: 'js',
+    main: '../kendo.core.js'
+  },
+  'kendo-ui-core/numerictextbox': {
+    format: 'cjs',
+    defaultExtension: 'js',
+    main: '../kendo.numerictextbox.js'
+  },
+  'kendo-ui-core/slider': {
+    format: 'cjs',
+    defaultExtension: 'js',
+    main: '../kendo.slider.js'
+  },
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,7 +64,8 @@ System.config({
     'rxjs': 'vendor/rxjs',
     'main': 'main.js'
   },
-  packages: cliSystemConfigPackages
+  packages: cliSystemConfigPackages,
+  defaultJSExtensions: true
 });
 
 // Apply the user's configuration.
