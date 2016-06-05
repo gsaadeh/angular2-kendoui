@@ -11,6 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
+  <link rel="stylesheet" href="vendor/bootstrap/dist/bootstrap.min.css">
   <link rel="stylesheet" href="vendor/kendo-ui-core/css/web/kendo.common.core.min.css">
   <link rel="stylesheet" href="vendor/kendo-ui-core/css/web/kendo.default.min.css">
 
@@ -18,18 +19,12 @@
 <body>
   <ng2-kendoui-app>Loading...</ng2-kendoui-app>
 
-  
-
     {{#each scripts.polyfills}}<script src="{{.}}"></script>{{/each}}
     <script>
       System.import('system-config.js').then(function () {
         System.import('main');
       }).catch(console.error.bind(console));
     </script>
-
-  
-
-
 
 </body>
 </html>

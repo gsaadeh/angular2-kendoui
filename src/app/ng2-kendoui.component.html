@@ -4,7 +4,7 @@
 <form [ngFormModel]='testForm'>
   <fieldset>
       <legend>KendoUI Angular2</legend>
-      <kendo-numerictextbox [options]="numericOptions" ngControl="amount" (spin)="log($event)" [(ngModel)]='data.amount'></kendo-numerictextbox>
+      <input type="text" #amount />
   </fieldset>
   <button (click)="onSubmit()">Submit</button>
 </form>

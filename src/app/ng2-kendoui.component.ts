@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, Renderer, ElementRef } from '@angular/core';
 import { FORM_DIRECTIVES, ControlGroup, Control  } from '@angular/common';
-import { KendoValueAccessor } from './shared/kendo.angular2';
 
 import 'kendo-ui-core/numerictextbox';
 import 'kendo-ui-core/slider';
@@ -10,24 +9,28 @@ import 'kendo-ui-core/slider';
   selector: 'ng2-kendoui-app',
   templateUrl: 'ng2-kendoui.component.html',
   styleUrls: ['ng2-kendoui.component.css'],
-  directives: [FORM_DIRECTIVES, KendoValueAccessor]
+  directives: [FORM_DIRECTIVES]
 })
-export class Ng2KendouiAppComponent {
-  title = 'ng2-kendoui works!';
-    data: { amount: Number } = { amount: 10 };
-    numericOptions: { format: String } = { format: "c0" };
+export class Ng2KendouiAppComponent implements AfterViewInit {
+    title = 'ng2-kendoui works!';
+    data: { amount: Number } = { amount: 3 };
+    numericOptions:kendo.ui.NumericTextBoxOptions = { format: 'c0', min: 10, max: 20 };
+    @ViewChild("amount") private amountElement: ElementRef;
 
     theFormat: String;
 
     testForm: ControlGroup;
 
-    constructor() {
-        this.data.amount = 10;
-
+    constructor(private _renderer: Renderer, private _elementRef: ElementRef) {
+        
         this.testForm = new ControlGroup({
             amount: new Control("")
         });
 
+    }
+
+    public ngAfterViewInit() {
+        jQuery(this.amountElement.nativeElement).kendoNumericTextBox(this.numericOptions);
     }
 
     setFormat() {

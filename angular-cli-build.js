@@ -12,6 +12,7 @@ module.exports = function (defaults) {
       'reflect-metadata/**/*.+(js|js.map)',
       'rxjs/**/*.+(js|js.map)',
       '@angular/**/*.+(js|js.map)',
+      'bootstrap/dist/*.+(css|css.map|ttf|woff|woff2|svg|png)',
       'jquery/dist/*.+(js|js.map)',
       'kendo-ui-core/**/*.+(js|js.map|css|css.map|ttf|woff|eot|svg|png)'
     ]
